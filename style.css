@@ -161,7 +161,7 @@ body {
   margin: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 100px;
   gap: 10px;
 }
