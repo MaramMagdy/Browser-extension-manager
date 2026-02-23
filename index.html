@@ -15,8 +15,10 @@
       rel="stylesheet"
       href="node_modules/bootstrap/dist/css/bootstrap.min.css"
     />
-    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <!-- <script src="node_modules/axios/dist/axios.min.js"></script> -->
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="control.js"></script>
     <script src="control.js"></script>
 
     <link rel="stylesheet" href="style.css" />
@@ -49,29 +51,13 @@
         <p>Extensions List</p>
 
         <div class="options">
-          <input
-            type="radio"
-            name="filter"
-            id="all"
-            checked
-            hidden
-          />
+          <input type="radio" name="filter" id="all" checked hidden />
           <label for="all" onclick="GetCards('all')">All</label>
 
-          <input
-            type="radio"
-            name="filter"
-            id="active"
-            hidden
-          />
+          <input type="radio" name="filter" id="active" hidden />
           <label for="active" onclick="GetCards('active')">Active</label>
 
-          <input
-            type="radio"
-            name="filter"
-            id="inactive"
-            hidden
-          />
+          <input type="radio" name="filter" id="inactive" hidden />
           <label for="inactive" onclick="GetCards('inactive')">Inactive</label>
         </div>
       </div>

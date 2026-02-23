@@ -1,14 +1,13 @@
 window.onload = function () {
-  axios.get("/data.json").then((response) => {
+  axios.get("./data.json").then((response) => {
     allCards = response.data;
     GetCards("all");
   });
 };
 
-
 function GetCards(status = "all") {
   axios
-    .get("/data.json")
+    .get("./data.json")
     .then((response) => {
       let cards = response.data;
       let container = document.getElementById("all-cards");
