@@ -1,0 +1,287 @@
+:root {
+  /* ===== Typography & base ===== */
+  --font-family: "Noto Sans", sans-serif;
+  --font-color: hsl(227, 75%, 14%);
+
+  /* ===== Layout / Backgrounds ===== */
+  --body-gradient: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
+  --cards-and-navbar-color: hsl(200, 60%, 99%);
+  --cards-and-navbar-color-hover: hsl(0, 0%, 93%);
+
+  /* ===== Neutrals (light theme) ===== */
+  --neutral-900: hsl(227, 75%, 14%);
+  --neutral-800: hsl(226, 25%, 17%);
+  --neutral-700: hsl(225, 23%, 24%);
+  --neutral-300: hsl(0, 0%, 78%);
+  --neutral-200: hsl(217, 61%, 90%);
+
+  /* ===== Card / UI ===== */
+  --card-paragraph: hsl(226, 11%, 37%);
+  --card-shadow: hsl(0, 0%, 78%);
+  --toggle-color: hsl(0, 0%, 93%);
+
+  /* ===== Accent / Reds (consistent naming) ===== */
+  --red: hsl(3, 77%, 44%);
+}
+
+/* Dark theme overrides */
+[data-theme="dark"] {
+  --body-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+  --font-color: hsl(200, 60%, 99%);
+
+  /* Cards / Navbar on dark */
+  --cards-and-navbar-color: hsl(226, 25%, 17%);
+  --cards-and-navbar-color-hover: hsl(225, 23%, 24%);
+
+  /* Neutrals for dark */
+  --neutral-900: hsl(227, 75%, 14%);
+  --neutral-800: hsl(226, 25%, 17%);
+  --neutral-700: hsl(225, 23%, 24%);
+  --neutral-300: hsl(0, 0%, 78%);
+  --neutral-800: hsl(0, 0%, 24%);
+
+  /* Card / UI adjustments */
+  --card-paragraph: hsl(217, 61%, 90%);
+  --card-shadow: hsl(226, 11%, 37%);
+
+  /* make the toggle darker in dark mode so it remains visible */
+  --toggle-color: hsl(217, 61%, 90%);
+
+  /* Slightly adjusted reds for dark */
+  --red: hsl(3, 71%, 56%);
+}
+
+/* Import font */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  font-family: var(--font-family);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  background-image: var(--body-gradient);
+  min-height: 100vh;
+  color: var(--font-color);
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px;
+  width: 80%;
+  height: 50px;
+  margin: 20px auto 0;
+  border-radius: 12px;
+  background-color: var(--cards-and-navbar-color);
+}
+
+.menu-icon {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* fixed missing dot in original code */
+.menu-icon span {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.sun {
+  background-color: var(--cards-and-navbar-color-hover);
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sun:hover {
+  background-color: var(--card-shadow);
+}
+.sun:focus {
+  border: 1px solid var(--red);
+}
+
+.logo-dark {
+  width: 30px;
+  height: auto;
+}
+
+/* ===== Extension list ===== */
+.extension-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 79%;
+  margin: 30px auto;
+}
+.extension-list p {
+  font-weight: 600;
+  font-size: 18px;
+}
+.options {
+  display: flex;
+  gap: 5px;
+}
+
+/* option button look */
+.options label {
+  padding: 5px 12px;
+  border-radius: 20px;
+  background-color: var(--cards-and-navbar-color);
+  border: 1px solid var(--card-shadow);
+  cursor: pointer;
+  color: var(--font-color);
+  transition: 0.3s;
+}
+
+/* hover */
+.options label:hover {
+  background-color: var(--cards-and-navbar-color-hover);
+}
+
+/* when corresponding radio is checked */
+.options input:checked + label {
+  background-color: var(--red);
+  color: var(--cards-and-navbar-color);
+  border-color: var(--red);
+}
+
+/* ===== Cards ===== */
+.all-cards {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 100px;
+  gap: 10px;
+}
+
+.extension-card {
+  display: flex;
+  flex: 1 1 300px; /* أقل عرض 300px */
+  max-width: 32%;
+  border-radius: 12px;
+  background-color: var(--cards-and-navbar-color);
+  border: 1px solid var(--card-shadow);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-header {
+  display: flex;
+  margin-bottom: 30px;
+  gap: 5px;
+}
+.logo-img img {
+  margin-right: 10px;
+  width: 50px;
+}
+
+.card-title {
+  flex: 1;
+  color: var(--font-color);
+}
+
+.card-title p {
+  width: 100%;
+  font-size: 10px;
+  /* letter-spacing: 1.1px; */
+  font-weight: 400;
+  color: var(--card-paragraph);
+}
+.card-title h5 {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 3px;
+}
+
+.remove {
+  padding: 5px 10px;
+  font-weight: 400;
+  border: 1px solid var(--card-shadow);
+  border-radius: 20px;
+  background-color: var(--cards-and-navbar-color);
+  cursor: pointer;
+  color: var(--font-color);
+  font-size: 10px;
+}
+
+.remove:hover,
+.remove:focus {
+  background-color: var(--cards-and-navbar-color-hover);
+}
+.remove:focus {
+  border: 1px solid var(--red);
+}
+
+/* ===== Toggle / form check input =====
+   - unified selectors and behavior
+*/
+.form-check-input {
+  background-color: var(--toggle-color);
+  border: 1px solid var(--card-paragraph);
+  transition: 0.3s;
+  box-shadow: none; /* reset focus outline box-shadow */
+}
+
+/* checked state */
+.form-check-input:checked {
+  background-color: var(--red);
+  border-color: var(--red);
+}
+
+/* focus state: keep it neat */
+.form-check-input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* small helpers */
+.hidden {
+  display: none;
+}
+
+
+
+
+/* ========== Tablet ========== */
+@media (max-width: 992px) {
+  .extension-card {
+    max-width: 48%;
+  }
+
+  .navbar,
+  .all-cards,
+  .extension-list {
+    width: 90%;
+  }
+}
+
+/* ========== Mobile ========== */
+@media (max-width: 576px) {
+  .extension-card {
+    max-width: 100%;
+  }
+
+  .extension-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .navbar {
+    width: 95%;
+  }
+}
